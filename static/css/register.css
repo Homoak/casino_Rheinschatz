@@ -1,0 +1,130 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url('/static/images/abs.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: Trebuchet MS, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.form {
+    background-image: url('/static/images/abstract.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    width: 500px;
+    height: 500px;
+    margin-top: 30px; /* Устанавливает отступ в 20px сверху */
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 25px;
+    align-center: center;
+}
+
+.form_input {
+    width: 90%;
+    padding: 0 0 10px 0;
+    border: none;
+    border-bottom: 1px solid #e0e0e0;
+    background-color: transparent;
+    outline: none;
+    transition: 0.3s;
+    margin: 0 auto;
+    justify-content: center;
+    text-align: center;
+    background-color: #750000;
+    border-radius: 20px;
+    border-bottom: 2px solid rgb(46, 0, 0);
+     transition: transform 0.3s ease; /* Плавный переход */
+    box-shadow: 0 1px 7px #940000;
+
+}
+
+.form_group {
+    position: relative;
+    margin-bottom: 16px;
+    justify-content: center;
+    text-align: center;
+    transition: transform 0.3s ease; /* Плавный переход */
+    display: flex
+
+
+}
+
+.form_group:-webkit-autofill{
+    background-color: rgb(94, 0, 0); /* Колір фону автозаповнення */
+    color: rgb(0, 102, 153);              /* Колір тексту автозаповнення */
+    border-bottom: 2px solid rgb(0, 128, 255); /* Колір підкреслення */
+}
+
+.logo img {
+    max-width: 150px;
+    margin-bottom: 10px;
+    border-radius: 80px;
+    align-items: center;
+    display: block;
+      margin: 0 auto;
+      margin-top: 10px;
+}
+
+
+input:focus {
+    border-color: #c20000;
+}
+
+input:focus + label,
+input:not(:placeholder-shown) + label {
+    top: -15px;
+    left: 5px;
+    font-size: 12px;
+    color: #ff0000;
+}
+
+.casino-button {
+    margin-top: 20px;
+    background-color: #ff2d2d; /* Красный цвет */
+    color: white; /* Белый текст */
+    border: none;
+    border-radius:  25px; /* Скругление углов */
+    padding: 5px 25px; /* Внутренние отступы */
+    font-size: 20px; /* Размер шрифта */
+    cursor: pointer; /* Указатель мыши */
+    transition: background-color 0.3s; /* Плавный переход цвета фона */
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    transition: transform 0.3s ease; /* Плавный переход */
+
+
+}
+
+.casino-button: disabled {
+    background-color: #7d7d7d; /* Красный цвет */
+    color: white; /* Белый текст */
+    border: none;
+    border-radius:  15px; /* Скругление углов */
+    padding: 10px 35px; /* Внутренние отступы */
+    font-size: 20px; /* Размер шрифта */
+    cursor: pointer; /* Указатель мыши */
+    transition: background-color 0.3s; /* Плавный переход цвета фона */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.casino-button:hover {
+    background-color: #e60000; /* Темно-красный цвет при наведении */
+    transform: scale(1.1);
+}
+
+.image-text {
+    background-image: url ('/static/images/text_red.jpg');
+    background-clip: text;
+    color: transparent;
+}

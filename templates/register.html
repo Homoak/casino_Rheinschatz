@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <link rel="stylesheet" href="../static/css/register.css">
+</head>
+<body>
+
+<div class="first_content">
+    <font style="color: white;" face="Arial">
+        <h1 class="image-text" align="center" style="color:white">Hello! It is registration!</h1>
+        <form id="registrationForm" action="{{ url_for('register') }}" method="post" class="form">
+
+            <h2 align="center" class="form_title" style="color:white">Register</h2>
+
+            <div class="form_group">
+                <input onChange="checkForm()" id="name" name="name" class="form_input" type="text" placeholder="Name">
+            </div>
+
+            <div class="form_group">
+                <input onChange="checkForm()" id="email" name="email" class="form_input" type="text"
+                       placeholder="Email">
+            </div>
+
+            <div class="form_group">
+                <input onChange="checkForm()" id="password" name="password" class="form_input" type="text"
+                       placeholder="Password">
+            </div>
+
+            <div class="form_group">
+                <input onChange="checkForm()" id="repl_password" name="repl_password" class="form_input" type="text"
+                       placeholder="Replay_Password">
+            </div>
+            <div class="logo">
+                <img src="../static/images/logo.webp" alt="Логотип">
+            </div>
+            <div class="button-container">
+    <button onclick="play(); setTimeout(function() { location.href='http://127.0.0.1:7777/'; }, 500);"
+            class="casino-button" type="button" formtarget="_blank">Back
+    </button>
+    <button id="submitButton" onclick="play(); setTimeout(function() { location.href='http://127.0.0.1:7777/home'; }, 500);"
+            class="casino-button" type="button" formtarget="_blank" disabled>Enter</button>
+    </button>
+
+</div>
+        </form>
+    </font>
+</div>
+
+<div class="second_content">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="flash-message {{ category }}">{{ message }}</div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+</div>
+
+
+<script>
+    function checkForm() {
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value.trim();
+        const replPassword = document.getElementById('repl_password').value.trim();
+        const submitButton = document.getElementById('submitButton');
+        if (name && email && password && replPassword && (password === replPassword)) {
+            submitButton.disabled = false;
+        } else {
+            submitButton.disabled = true;
+        }
+    }
+
+    document.querySelectorAll('input').forEach(input => {
+        input.addEventListener('input', checkForm);
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const messages = document.querySelectorAll('.flash-message');
+        messages.forEach(function(message) {
+            // Плавне з'явлення
+            setTimeout(function() {
+                message.classList.add('visible');
+            }, 100); // Невелика затримка для плавного ефекту з'явлення
+
+            // Плавне зникання
+            setTimeout(function() {
+                message.classList.add('hidden');
+                setTimeout(function() {
+                    message.remove();
+                }, 1000); // Видаляє елемент після завершення анімації (1s)
+            }, 5000); // Затримка перед початком зникання (5s)
+        });
+    });
+
+    // Програвання звуку при натисканні на кнопку Enter
+    document.getElementById('submitButton').addEventListener('click', function() {
+        const audio = document.getElementById('audio');
+        audio.play();
+
+        // Дочікуємося, поки звук почне програватися, потім відправляємо форму
+        audio.addEventListener('playing', function() {
+            document.getElementById('registrationForm').submit();
+        });
+    });
+
+    // Програвання звуку при натисканні на кнопку Back
+    document.getElementById('backButton').addEventListener('click', function() {
+        const audio = document.getElementById('audio');
+        audio.play();
+
+        // Дочікуємося, поки звук почне програватися, потім перенаправляємо користувача
+        audio.addEventListener('playing', function() {
+            window.location.href = 'http://127.0.0.1:5000/';
+        });
+    });
+</script>
+</body>
+</html>

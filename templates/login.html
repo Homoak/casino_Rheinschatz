@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="../static/css/login.css">
+</head>
+<body>
+
+<div class="first_content">
+        <h1 class="image-text" align="center" style="color:white">Bitte melden Sie sich an, um fortzufahren.</h1>
+        <form id="registrationForm" action="{{ url_for('register') }}" method="post" class="form">
+
+            <h2 align="center" class="form_title" style="color:white">Login</h2>
+
+            <div class="form_group">
+                <input onChange="checkForm()" id="name" name="name" class="form_input" type="text" placeholder="Name">
+            </div>
+
+            <div class="form_group">
+                <input onChange="checkForm()" id="password" name="password" class="form_input" type="text"
+                       placeholder="Password">
+            </div>
+            <div class="logo">
+                <img src="../static/images/logo.webp" alt="Логотип">
+            </div>
+            <div class="button-container">
+    <button onclick="play(); setTimeout(function() { location.href='http://www.google.com'; }, 500);"
+            class="casino-button" type="button" formtarget="_blank">Back
+    </button>
+    <button id="submitButton" onclick="play(); setTimeout(function() { location.href='http://www.google.com'; }, 500);"
+            class="casino-button2" type="button" formtarget="_blank" disabled>Enter</button>
+    </button>
+
+</div>
+        </form>
+</div>
+
+<div class="second_content">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="flash-message {{ category }}">{{ message }}</div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+</div>
+</body>
+</html>
