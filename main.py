@@ -1,4 +1,4 @@
-import sqlite3
+import sqlite3, random
 
 from flask import Flask, render_template, request, redirect, url_for, flash, g
 
@@ -35,6 +35,12 @@ def welcome():
 @app.route('/home')
 def home():
     return render_template('home.html')
+
+@app.route('/game')
+def random_game():
+    slots = ['+500💲', '+100💲', '-1000💲', '+1000💲', '+50💲', '+10000💲', '-10000💲', '+100000💲', '-100000💲', '-50💲', '+20💲', '+10💲', '10💲' ]
+    results = random.choices(slots)
+    return  render_template('game.html', results=results)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
