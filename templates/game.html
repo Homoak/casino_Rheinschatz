@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" , href="../static/css/game.css">
+    <title>Casino Wheel</title>
+
+</head>
+<body>
+<div id="wheel" class="wheel" onclick="spinWheel()">
+    {% for symbol in result %}
+    <span class="result"><b>{{ symbol }}</b></span>
+    {% endfor %}
+</div>
+<button class="results" type="button" onClick="window.location.reload();">Spid</button>
+<script>
+
+
+</script>
+</body>
+</html>

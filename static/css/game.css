@@ -1,0 +1,57 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url('/static/images/abs.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: Trebuchet MS, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+
+        .wheel {
+            width: 200px;
+            height: 200px;
+            border: 5px solid #ff2d2d;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 2s ease;
+            margin-left: 0;
+            margin-right: 0;
+            margin-top: 150px;
+            background-image: url('/static/images/text_red.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .result {
+            margin-top: 20px;
+            text-align: center;
+            margin-left: 0;
+            margin-right: 2;
+            color: #fff;
+            margin-top: 5px;
+        }
+
+        .results {
+            margin-top: 10px;
+            background-color: #ff2d2d;
+            border-radius: 15px;
+            width: 100px;
+            height: 60px;
+            border: 5px solid #ff2d2d;
+            transition: transform 0.3s ease;
+        }
+
+        .results:hover {
+            border: 5px solid #850000;
+            background-color: #a60000;
+            transform: scale(1.1); /* Збільшує іконку на 10% при наведенні */
+        }

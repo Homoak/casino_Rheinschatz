@@ -1,54 +1,449 @@
+/* Загальні стилі */
 body {
     background-image: url('/static/images/abs.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    font-family: Trebuchet MS, sans-serif;
+    font-family: Arial, sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
 }
 
+/* Шапка сайту */
 .site-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    position: relative;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%; /* Ширина шапки */
+    max-width: 1200px; /* Максимальна ширина шапки */
+    background-color: #333;
+    color: white;
+    z-index: 1; /* Нижчий z-index для шапки */
+    box-shadow: 0 1px 20px #ff0000;
+    border-radius: 0 0 10px 10px;
+    padding: 10px 20px; /* Відступи всередині шапки */
+    align-items: center; /* Вирівнювання по центру */
+    justify-content: space-between; /* Логотип ліворуч, навігація праворуч */
+    background-image: url('/static/images/img.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    max-height: 60px; /* Висота в закритому стані */
+    transition: max-height 0.5s ease-out;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.site-header.open {
+    max-height: 200px; /* Висота в розкритому стані */
+}
+
+.site-header.hidden {
+    height: 0;
+    overflow: hidden;
+    border: none;
 }
 
 .logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #333;
+    flex-shrink: 0;
 }
 
+.logo img {
+    height: 25px; /* Висота логотипа */
+    width: auto;
+}
+
+/* Стилі для навігації */
+.navigation {
+    display: flex;
+    align-items: center;
+}
+
+/* Стилі для пунктів навігації */
 .navigation ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  gap: 1.5rem;
+    list-style-type: none;
+    display: flex;
+    gap: 15px; /* Відстань між кнопками */
+    margin: 0;
+    padding: 0;
 }
 
-.navigation a {
-  text-decoration: none;
-  color: #333;
-  font-size: 1rem;
-  transition: color 0.3s ease-in-out;
+.navigation ul li {
+    margin: 0;
+    position: relative; /* Для правильного позиціонування випадаючого меню */
 }
 
-.navigation a:hover {
-  color: #007bff;
+/* Стилі для кнопок */
+.image-button {
+    width: 30px; /* Ширина кнопки */
+    height: 30px; /* Висота кнопки */
+    background-image: url('images/vobler.jpg');
+    background-size: cover;
+    background-position: center;
+    border: none; /* Забирає межу кнопки */
+    cursor: pointer; /* Змінює курсор при наведенні */
+    border-radius: 50%;
+}
+
+/* Стилі для контенту */
+.content-container {
+    display: flex;
+    flex-direction: column; /* Вирівнювання по вертикалі */
+    justify-content: center; /* Центрує по вертикалі */
+    align-items: center; /* Центрує по горизонталі */
+    height: calc(100vh - 100px); /* Висота контейнера з відрахуванням висоти шапки */
+    text-align: center;
+}
+
+.content-container h1 {
+    margin-bottom: 20px; /* Відступ між заголовком і списком */
+}
+
+.text1 {
+    font-size: 15px;
+    font-weight: bold;
+    font-family: Arial;
+    color: #fff;
+    display: inline-block;
+    position: relative;
+    display: flex;
+    gap: 10px;
+    padding: 1px 15px;
+    color: red;
+}
+
+.text1:hover a {
+    -webkit-mask-image: linear-gradient(-75deg, rgba(0, 0, 0, .6) 30%, #000 50%, rgba(0, 0, 0, .6) 70%);
+    -webkit-mask-size: 200%;
+    animation: wave 2s infinite;
+}
+
+@-webkit-keyframes wave {
+    from {
+        -webkit-mask-position: 150%;
+    }
+    to {
+        -webkit-mask-position: -50%;
+    }
+}
+
+.item-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.item-list li {
+    margin-bottom: 10px; /* Відступ між елементами списку */
+    color: white;
+}
+
+/* Стилі для футера */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    background-image: url('images/img.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 1200px;
+    height: 90px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.footer-logo img {
+    max-width: 80px;
+    margin-bottom: 10px;
+    border-radius: 50px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+    color: red;
+}
+
+.footer-social {
+    display: flex;
+    gap: 10px;
+}
+
+.footer-social img {
+    width: 35px;
+    height: 30px;
+    border-radius: 50%;
+    box-shadow: 0 1px 10px #ff0000;
+    transition: transform 0.3s ease; /* Плавний перехід для трансформації */
+}
+
+.footer-social img:hover {
+    transform: scale(1.1); /* Збільшує іконку на 10% при наведенні */
+}
+
+.footer-bottom {
+    background-color: #222;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Стилі для тексту */
+.text {
+    font-size: 80px;
+    font-weight: bold;
+    font-family: Arial;
+    color: #13678a;
+    display: inline-block;
+    position: relative;
+}
+
+.text, details:hover {
+    -webkit-mask-image: linear-gradient(-75deg, rgba(0, 0, 0, .6) 30%, #000 50%, rgba(0, 0, 0, .6) 70%);
+    -webkit-mask-size: 200%;
+    animation: wave 1s infinite;
+    color: red;
+}
+
+
+@-webkit-keyframes wave {
+    from {
+        -webkit-mask-position: 150%;
+    }
+    to {
+        -webkit-mask-position: -50%;
+    }
+}
+
+/* Стилі для кнопок */
+.custom-button {
+    background-color: #e74c3c; /* Яскраво-червоний колір */
+    color: #ffffff; /* Білий текст */
+    padding: 5px 10px; /* Менші внутрішні відступи */
+
+    border: none;
+    border-radius: 10px; /* Згладжені краї (менше округлення) */
+    font-size: 14px; /* Менший розмір шрифту */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Плавна зміна кольору */
+    width: auto; /* Виправлений розмір кнопки */
+    height: 50px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 1px 20px #ff0000;
+      color: #fff;
+  text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #ff0000,
+      0 0 82px #ff0000,
+      0 0 92px #ff0000,
+      0 0 102px #ff0000,
+      0 0 151px #ff0000;
+}
+
+.custom-button:hover {
+    background-color: #c0392b; /* Темніший червоний при наведенні */
+    transform: scale(1.1); /* Збільшує кнопку на 10% */
+}
+
+.custom-button:active {
+    background-color: #a93226; /* Темно-червоний при натисканні */
+}
+
+.custom-button:focus {
+    outline: none; /* Видалення рамки при фокусуванні */
+}
+
+.custom-button {
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1); /* Легка тінь (менша) */
+    text-transform: uppercase; /* Великі літери */
+    letter-spacing: 0.5px; /* Розрядка між літерами (менша) */
+}
+
+body.light-theme {
+    background-image: url('volni.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+body.light-theme a {
+    color: #0000ff; /* Приклад: посилання синього кольору в світлій темі */
+}
+
+body.light-theme button {
+    background-color: #eee;
+    color: #000;
+}
+
+body.light-theme header {
+    background-image: url('images/images.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    .text1{
+        color: red;
+    }
+}
+/* Інші елементи сайту */
+body.light-theme .site-header {
+    background-color: #ffffff;
+    color: #333333;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme footer {
+    background-color: #fafafa;
+    color: #333333;
+}
+
+/* Спільні стилі для сторінки */
+body {
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+ /* Темна тема за замовчуванням */
+        body {
+            background-color: black;
+            color: white;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Стилі для світлої теми */
+        body.light-theme {
+            background-color: white;
+            color: black;
+        }
+
+        /* Оформлення кнопки */
+        #theme-toggle {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        #theme-toggle:hover {
+            background-color: #0056b3;
+        }
+
+.details {
+    font-size: 15px;
+    font-weight: bold;
+    font-family: Arial;
+    color: white;
+    display: inline-block;
+    position: relative;
+}
+
+.grid-container {
+    display: flex;
+    flex-wrap: wrap; /* Дозволяє карткам автоматично переходити на новий рядок */
+    gap: 20px; /* Відступи між картками */
+    justify-content: center;
+}
+
+.card-container {
+    perspective: 1000px; /* Додає ефект глибини для обертання */
+    position: relative;
+}
+
+
+/* Приховуємо чекбокс */
+.card-checkbox {
+    display: none;
+}
+
+.card {
+    width: 250px; /* Задаємо ширину картки */
+    height: 400px; /* Задаємо висоту картки */
+    position: relative;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+/* Ефект перевертання картки */
+.card-checkbox:checked ~ .card {
+    transform: rotateY(180deg);
+}
+
+.card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    backface-visibility: hidden;
+}
+
+.card-front {
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #333;
+}
+
+.card-back {
+    background-color: #333;
+    color: #fff;
+    transform: rotateY(180deg);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Стилізація лейбла */
+.card-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.card-label:hover {
+    transform: scale(1,1);
+}
+
+details summary {
+    list-style: none; /* Прибирає стандартний трикутник */
+}
+
+details[open] summary::-webkit-details-marker {
+    display: none; /* Прибирає трикутник у браузерах на основі Webkit */
+}
+
+.li10 {
+    background-image: url('images/img1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 5px;
 }
