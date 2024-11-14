@@ -1,6 +1,7 @@
 import sqlite3, random
 
-from flask import Flask, render_template, request, redirect, url_for, flash, g
+from flask import Flask, render_template, request, redirect, url_for, flash, g, jsonify
+from werkzeug.security import generate_password_hash, check_password_hash
 
 
 app = Flask(__name__)
@@ -8,6 +9,7 @@ app = Flask(__name__)
 app.secret_key = '4f9f94c5e0b5708d03e495dec18e3eecfca48627b1e97218a286cf6aa6fd776f'
 
 DATABASE = 'database.db'
+
 
 def get_db():
     if 'db' not in g:
@@ -38,9 +40,10 @@ def home():
 
 @app.route('/game')
 def random_game():
-    slots = ['+500💲', '+100💲', '-1000💲', '+1000💲', '+50💲', '+10000💲', '-10000💲', '+100000💲', '-100000💲', '-50💲', '+20💲', '+10💲', '10💲' ]
-    results = random.choices(slots)
-    return  render_template('game.html', results=results)
+    symbols = ['-100$', '-1000$', '-10000$', '-100000$', '-500000$', '+100$', '+500$', '+10000$']  # Символи крутилки
+    result = [random.choice(symbols) for _ in range(1)]
+    return render_template("game.html", result=result)
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
