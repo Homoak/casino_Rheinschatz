@@ -6,10 +6,12 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
 
-app.secret_key = '4f9f94c5e0b5708d03e495dec18e3eecfca48627b1e97218a286cf6aa6fd776f'
+app.secret_key = '''b'7A\xec\xb6\x83A\x0c\xacH\x9a\x18\xc3\xd0\xf1\x07\xd2\xfa\xd7t\x80\xdf\x0f3\xea'
+'''
 
 DATABASE = 'database.db'
 
+balance = 1000
 
 def get_db():
     if 'db' not in g:
@@ -44,23 +46,25 @@ def random_game():
     result = [random.choice(symbols) for _ in range(1)]
     return render_template("game.html", result=result)
 
-
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        username = request.form.get('username')
+        name = request.form.get('name')  # Використання імені для аутентифікації
         password = request.form.get('password')
 
-        user = User.query.filter_by(username=username).first()
-        if not user or not check_password_hash(user.password, password):
-            flash('Неверные учетные данные.')
-            return redirect(url_for('login'))
+        db = get_db()  # Підключення до бази даних
+        cursor = db.execute("SELECT * FROM users WHERE name = ?", (name,))
+        user = cursor.fetchone()
 
-        session['user_id'] = user.id
-        flash('Вход выполнен успешно.')
-        return redirect(url_for('index'))
+        if user and check_password_hash(user['password'], password):  # Перевірка пароля
+            flash('Login successful!', 'success')
+            return redirect(url_for('home'))  # Перехід на домашню сторінку
+        else:
+            flash('Invalid name or password', 'error')
 
     return render_template('login.html')
+
+
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -85,24 +89,20 @@ def register():
                 else:
                     # Хешування пароля
                     hashed_password = generate_password_hash(password, method='scrypt')
-                    hashed_repl_password = generate_password_hash(repl_password, method='scrypt')
-
                     # Вставка даних в базу
-                    db.execute("INSERT INTO users (name, email, password, repl_password) VALUES (?, ?, ?, ?)",
-                               (name, email, hashed_password, hashed_repl_password))
+                    db.execute("INSERT INTO users (name, email, password) VALUES (?, ?, ?)",
+                               (name, email, hashed_password))
                     db.commit()
                     flash('Registration successful', 'success')
                     return redirect(url_for('home'))
             except sqlite3.Error as e:
                 flash(f"An error occurred: {e}", 'error')
-            finally:
-                cursor.close()
+                print(f"Name: {name}, Email: {email}, Password: {password}")
 
     return render_template('register.html')
 
 
 
+
 if __name__ == "__main__":
     app.run(port=7777, debug=True)
-
-    print(name)

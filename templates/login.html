@@ -8,32 +8,25 @@
 <body>
 
 <div class="first_content">
-        <h1 class="image-text" align="center" style="color:white">Bitte melden Sie sich an, um fortzufahren.</h1>
-        <form id="registrationForm" action="{{ url_for('register') }}" method="post" class="form">
+    <h1 class="image-text" align="center" style="color:white">Bitte melden Sie sich an, um fortzufahren.</h1>
+    <form id="loginForm" action="{{ url_for('login') }}" method="post" class="form">
+        <h2 align="center" class="form_title" style="color:white">Login</h2>
 
-            <h2 align="center" class="form_title" style="color:white">Login</h2>
+        <div class="form_group">
+            <input id="name" name="name" class="form_input" type="text" placeholder="Name" required>
+        </div>
 
-            <div class="form_group">
-                <input onChange="checkForm()" id="name" name="name" class="form_input" type="text" placeholder="Name">
-            </div>
-
-            <div class="form_group">
-                <input onChange="checkForm()" id="password" name="password" class="form_input" type="text"
-                       placeholder="Password">
-            </div>
-            <div class="logo">
-                <img src="../static/images/logo.webp" alt="Логотип">
-            </div>
-            <div class="button-container">
-    <button onclick="play(); setTimeout(function() { location.href='http://www.google.com'; }, 500);"
-            class="casino-button" type="button" formtarget="_blank">Back
-    </button>
-    <button id="submitButton" onclick="play(); setTimeout(function() { location.href='http://www.google.com'; }, 500);"
-            class="casino-button2" type="button" formtarget="_blank" disabled>Enter</button>
-    </button>
-
-</div>
-        </form>
+        <div class="form_group">
+            <input id="password" name="password" class="form_input" type="password" placeholder="Password" required>
+        </div>
+        <div class="logo">
+            <img src="../static/images/logo.webp" alt="Логотип">
+        </div>
+        <div class="button-container">
+            <button type="button" onclick="location.href='http://www.google.com';" class="casino-button">Back</button>
+            <button id="submitButton" class="casino-button2" type="submit" disabled>Enter</button>
+        </div>
+    </form>
 </div>
 
 <div class="second_content">
@@ -44,7 +37,35 @@
     {% endfor %}
     {% endif %}
     {% endwith %}
-
 </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const nameInput = document.getElementById('name');
+    const passwordInput = document.getElementById('password');
+    const submitButton = document.getElementById('submitButton');
+
+    // Функція для перевірки заповнення полів
+    function checkForm() {
+        const name = nameInput.value.trim();
+        const password = passwordInput.value.trim();
+
+        // Умови активації кнопки
+        if (name && password) {
+            submitButton.disabled = false; // Активуємо кнопку, якщо всі поля заповнені
+        } else {
+            submitButton.disabled = true; // Деактивуємо кнопку, якщо є порожні поля
+        }
+    }
+
+    // Додаємо слухачі подій для перевірки полів
+    nameInput.addEventListener('input', checkForm);
+    passwordInput.addEventListener('input', checkForm);
+
+    // Початкова перевірка при завантаженні сторінки
+    checkForm();
+});
+</script>
+
 </body>
 </html>

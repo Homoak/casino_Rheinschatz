@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game_777</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/game2.css') }}">
+</head>
+<body>
+    <div class="game-container">
+        <h1>Гра: Збіг елементів</h1>
+        <p>Ваш баланс: {{ balance }} доларів</p>
+        <form method="post">
+            <button type="submit" class="game-button">Грати</button>
+        </form>
+        <div class="message-container">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <p class="flash-message">{{ message }}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
+    </div>
+</body>
+</html>

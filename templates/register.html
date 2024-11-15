@@ -29,6 +29,7 @@
                 <div class="button-container">
                     <button onclick="play(); setTimeout(function() { location.href='http://127.0.0.1:7777/'; }, 500);" class="casino-button" type="button" formtarget="_blank">Back</button>
                     <button id="submitButton" class="casino-button" type="submit" disabled>Enter</button>
+
                 </div>
             </form>
         </font>
@@ -45,49 +46,68 @@
     </div>
 
     <script>
-        function checkForm() {
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const password = document.getElementById('password').value.trim();
-            const replPassword = document.getElementById('repl_password').value.trim();
-            const submitButton = document.getElementById('submitButton');
-            if (name && email && password && replPassword && (password === replPassword)) {
-                submitButton.disabled = false;
-            } else {
-                submitButton.disabled = true;
-            }
+document.addEventListener("DOMContentLoaded", function() {
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+    const replPasswordInput = document.getElementById('repl_password');
+    const submitButton = document.getElementById('submitButton');
+
+    // Функція для перевірки форми
+    function checkForm() {
+        const name = nameInput.value.trim();
+        const email = emailInput.value.trim();
+        const password = passwordInput.value.trim();
+        const replPassword = replPasswordInput.value.trim();
+
+        // Перевірка на заповненість полів та співпадіння паролів
+        if (name && email && password && replPassword && password === replPassword) {
+            submitButton.disabled = false; // Активувати кнопку, якщо всі умови виконано
+        } else {
+            submitButton.disabled = true; // Інакше залишити кнопку неактивною
         }
+    }
 
-        document.querySelectorAll('input').forEach(input => {
-            input.addEventListener('input', checkForm);
-        });
+    // Додаємо слухачів на кожне поле вводу
+    [nameInput, emailInput, passwordInput, replPasswordInput].forEach(input => {
+        input.addEventListener('input', checkForm);
+    });
 
-        document.addEventListener("DOMContentLoaded", function() {
-            const messages = document.querySelectorAll('.flash-message');
-            messages.forEach(function(message) {
-                setTimeout(function() {
-                    message.classList.add('visible');
-                }, 100);
-                setTimeout(function() {
-                    message.classList.add('hidden');
-                    setTimeout(function() {
-                        message.remove();
-                    }, 1000);
-                }, 5000);
-            });
-        });
+    // Початкова перевірка форми при завантаженні сторінки
+    checkForm();
 
-        // Програвання звуку при натисканні на кнопку Enter
-        document.getElementById('submitButton').addEventListener('click', function(event) {
+    // Відправка форми з анімацією при натисканні на кнопку
+    submitButton.addEventListener('click', function(event) {
+        if (!submitButton.disabled) {
+            event.preventDefault(); // Запобігання стандартній поведінці для початку
             const audio = document.getElementById('audio');
             if (audio) {
-                audio.play();
-                audio.addEventListener('playing', function() {
+                audio.play().then(() => {
                     document.getElementById('registrationForm').submit();
+                }).catch(error => {
+                    console.error('Не вдалося програти аудіо:', error);
+                    document.getElementById('registrationForm').submit(); // Відправка форми у разі помилки аудіо
                 });
-                event.preventDefault();
+            } else {
+                document.getElementById('registrationForm').submit(); // Якщо нема аудіо, відправляємо форму відразу
             }
-        });
+        }
+    });
+
+    // Виведення повідомлень Flash (якщо є)
+    const messages = document.querySelectorAll('.flash-message');
+    messages.forEach(function(message) {
+        setTimeout(function() {
+            message.classList.add('visible');
+        }, 100);
+        setTimeout(function() {
+            message.classList.add('hidden');
+            setTimeout(function() {
+                message.remove();
+            }, 1000);
+        }, 5000);
+    });
+});
     </script>
 </body>
 </html>

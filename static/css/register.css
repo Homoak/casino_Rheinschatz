@@ -106,7 +106,7 @@ input:not(:placeholder-shown) + label {
 }
 
 .casino-button: disabled {
-    background-color: #7d7d7d; /* Красный цвет */
+    background-color: #a8a8a8; /* Красный цвет */
     color: white; /* Белый текст */
     border: none;
     border-radius:  15px; /* Скругление углов */
