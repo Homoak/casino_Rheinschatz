@@ -1,0 +1,76 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url('/static/images/abs.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: Trebuchet MS, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            background: #f4f4f4;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .balance {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        .button {
+            margin-top: 10px;
+            background-color: #ff2d2d;
+            border-radius: 15px;
+            width: 100px;
+            height: 60px;
+            border: 5px solid #ff2d2d;
+            transition: transform 0.3s ease;
+        }
+        .button:hover {
+            border: 5px solid #850000;
+            background-color: #a60000;
+            transform: scale(1.1); /* Збільшує іконку на 10% при наведенні */
+        }
+        .result {
+            margin-top: 15px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .game-elements {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .element {
+            width: 60px;
+            height: 60px;
+            margin: 0 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            color: #fff;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .apple { background-color: #ff4d4d; }
+        .banana { background-color: #ffe135; }
+        .cherry { background-color: #ff6666; }
+        .orange { background-color: #ffa500; }
+        .grape { background-color: #8e44ad; }
+
+        .balance {
+            color: #ff2d2d;
+            border-radius: 10px;
+        }

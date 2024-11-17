@@ -11,7 +11,9 @@ app.secret_key = '''b'7A\xec\xb6\x83A\x0c\xacH\x9a\x18\xc3\xd0\xf1\x07\xd2\xfa\x
 
 DATABASE = 'database.db'
 
-balance = 1000
+user_balance = 1000
+
+element_list = ["apple", "banana", "cherry", "banana", "apple", "cherry", "banana"]
 
 def get_db():
     if 'db' not in g:
@@ -40,11 +42,55 @@ def welcome():
 def home():
     return render_template('home.html')
 
+@app.route('/match_game')
+def match_game():
+    return render_template('match_game.html', balance=user_balance)
+
+@app.route('/profile')
+def profile():
+    db = get_db()  # Підключення до бази даних
+    cursor = db.execute("SELECT * FROM users")
+    user = cursor.fetchall()[-1]
+    return render_template('profile.html', balance=user_balance, user=user)
+
+
 @app.route('/game')
 def random_game():
+    global user_balance
     symbols = ['-100$', '-1000$', '-10000$', '-100000$', '-500000$', '+100$', '+500$', '+10000$']  # Символи крутилки
-    result = [random.choice(symbols) for _ in range(1)]
-    return render_template("game.html", result=result)
+    result = random.choice(symbols)
+
+    # Обновляем баланс в зависимости от результата игры
+    if result.startswith('+'):
+        user_balance += int(result[1:-1])  # Добавляем положительную сумму
+    elif result.startswith('-'):
+        user_balance -= int(result[1:-1])  # Отнимаем отрицательную сумму
+
+    return render_template("game.html", result=result, balance=user_balance)
+
+@app.route('/check_match', methods=['POST'])
+def check_match():
+    global user_balance
+    # Получаем список элементов от клиента
+    data = request.json
+    selected_elements = data.get("elements", [])
+
+    # Проверяем, что у нас 3 элемента
+    if len(selected_elements) == 3:
+        # Проверяем, все ли элементы совпадают
+        if selected_elements[0] == selected_elements[1] == selected_elements[2]:
+            user_balance += 1000
+            result = "Match! +1000"
+        else:
+            user_balance -= 100
+            result = "No match! -100"
+    else:
+        result = "Ошибка: выбрано не 3 элемента"
+
+    return jsonify({
+        "balance": user_balance,
+        "result": result
+    })
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
