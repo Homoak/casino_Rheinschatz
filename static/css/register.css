@@ -86,39 +86,79 @@ input:not(:placeholder-shown) + label {
     color: #ff0000;
 }
 
-.casino-button {
+.casino-button1 {
     margin-top: 20px;
     background-color: #ff2d2d; /* Красный цвет */
     color: white; /* Белый текст */
     border: none;
-    border-radius:  25px; /* Скругление углов */
+    border-radius:  15px; /* Скругление углов */
     padding: 5px 25px; /* Внутренние отступы */
     font-size: 20px; /* Размер шрифта */
     cursor: pointer; /* Указатель мыши */
     transition: background-color 0.3s; /* Плавный переход цвета фона */
     width: 200px;
-    margin-left: auto;
+    margin-left: 35px;
     margin-right: auto;
     justify-content: center;
     transition: transform 0.3s ease; /* Плавный переход */
-
-
 }
 
-.casino-button: disabled {
+/* Общий стиль кнопки */
+.enter {
+    margin-top: 20px;
+    background-color: #ff2d2d; /* Красный цвет */
+    color: white; /* Белый текст */
+    border: none;
+    border-radius:  15px; /* Скругление углов */
+    padding: 5px 25px; /* Внутренние отступы */
+    font-size: 20px; /* Размер шрифта */
+    cursor: pointer; /* Указатель мыши */
+    transition: background-color 0.3s; /* Плавный переход цвета фона */
+    width: 200px;
+    margin-left: 20px;
+    margin-right: auto;
+    justify-content: center;
+    transition: transform 0.3s ease; /* Плавный переход */
+}
+
+/* Активная кнопка */
+.enter.active {
+  background-color: #4CAF50; /* Зеленый цвет */
+  color: white;
+}
+
+.enter.active:hover {
+  background-color: #45a049; /* Более темный зеленый при наведении */
+}
+
+/* Неактивная кнопка */
+.enter.inactive {
+  background-color: #f0f0f0; /* Светлый серый цвет */
+  color: #ccc; /* Текст светло-серого цвета */
+  cursor: not-allowed; /* Указывает, что кнопка не кликабельна */
+  opacity: 0.6; /* Уменьшает видимость */
+}
+
+
+.enter:disabled {
     background-color: #a8a8a8; /* Красный цвет */
     color: white; /* Белый текст */
     border: none;
     border-radius:  15px; /* Скругление углов */
-    padding: 10px 35px; /* Внутренние отступы */
+    padding: 5px 25px; /* Внутренние отступы */
     font-size: 20px; /* Размер шрифта */
+    width: 200px;
     cursor: pointer; /* Указатель мыши */
     transition: background-color 0.3s; /* Плавный переход цвета фона */
-    margin-left: auto;
+    margin-left: 20px;
     margin-right: auto;
+    justify-content: center;
+     cursor: not-allowed;
+    animation: none; /* Відсутність анімації для неактивної кнопки */
+    transform: none;
 }
 
-.casino-button:hover {
+.casino-button1:hover {
     background-color: #e60000; /* Темно-красный цвет при наведении */
     transform: scale(1.1);
 }
