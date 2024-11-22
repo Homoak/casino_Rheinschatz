@@ -47,106 +47,6 @@
             <audio id="hoverSound" src="static/knopka.mp3"></audio>
         </ul>
     </div>
-    <details>
-        <div class="grid-container">
-            <!-- Картка 1 -->
-            <div class="card-container">
-                <input onclick="play()" type="checkbox" id="flip1" class="card-checkbox">
-                <div class="card">
-                    <div class="card-face card-front">
-                        <h1>!HELLO!</h1>
-                        <p>Hello Card</p>
-                    </div>
-                    <div class="card-face card-back">
-                        <h1>!Hello!</h1>
-                        <p>Hello random user!</p>
-                    </div>
-                </div>
-                <label for="flip1" class="card-label"></label>
-            </div>
-
-            <!-- Картка 2 -->
-            <div class="card-container">
-                <input onclick="play()" type="checkbox" id="flip2" class="card-checkbox">
-                <div class="card">
-                    <div class="card-face card-front">
-                        <h1>!ABOUT!</h1>
-                        <p>This is a About card</p>
-                    </div>
-                    <div class="card-face card-back">
-                        <h1>About</h1>
-                        <p>This card about About!</p>
-                    </div>
-                </div>
-                <label for="flip2" class="card-label"></label>
-            </div>
-
-            <!-- Картка 3 -->
-            <div class="card-container">
-                <input onclick="play()" type="checkbox" id="flip3" class="card-checkbox">
-                <div class="card">
-                    <div class="card-face card-front">
-                        <h1>Info</h1>
-                        <p>This card with Info</p>
-                    </div>
-                    <div class="card-face card-back">
-                        <h1>Details</h1>
-                        <p>Information about Card 3.</p>
-                    </div>
-                </div>
-                <label for="flip3" class="card-label"></label>
-            </div>
-        </div>
-        <div class="grid-container">
-            <!-- Картка 1 -->
-            <div class="card-container">
-                <input onclick="play()" type="checkbox" id="flip1" class="card-checkbox">
-                <div class="card">
-                    <div class="card-face card-front">
-                        <h1>!HELLO!</h1>
-                        <p>Hello Card</p>
-                    </div>
-                    <div class="card-face card-back">
-                        <h1>!Hello!</h1>
-                        <p>Hello random user!</p>
-                    </div>
-                </div>
-                <label for="flip1" class="card-label"></label>
-            </div>
-
-            <!-- Картка 2 -->
-            <div class="card-container">
-                <input onclick="play()" type="checkbox" id="flip2" class="card-checkbox">
-                <div class="card">
-                    <div class="card-face card-front">
-                        <h1>!ABOUT!</h1>
-                        <p>This is a About card</p>
-                    </div>
-                    <div class="card-face card-back">
-                        <h1>About</h1>
-                        <p>This card about About!</p>
-                    </div>
-                </div>
-                <label for="flip2" class="card-label"></label>
-            </div>
-
-            <!-- Картка 3 -->
-            <div class="card-container">
-                <input onclick="play()" type="checkbox" id="flip3" class="card-checkbox">
-                <div class="card">
-                    <div class="card-face card-front">
-                        <h1>Info</h1>
-                        <p>This card with Info</p>
-                    </div>
-                    <div class="card-face card-back">
-                        <h1>Details</h1>
-                        <p>Information about Card 3.</p>
-                    </div>
-                </div>
-                <label for="flip3" class="card-label"></label>
-            </div>
-        </div>
-    </details>
     <!-- Optional JavaScript -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -157,91 +57,23 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
-    <script>
-        function play() {
-          var audio = document.getElementById("audio");
-          audio.currentTime = 0;
-          audio.play();
-        }
-          const button = document.getElementById('soundButton');
-          const hoverSound = document.getElementById('hoverSound');
 
-          button.addEventListener('mouseenter', () => {
-              hoverSound.currentTime = 0; // Возвращает звук к началу
-              hoverSound.play();
-          });
-          function playSound() {
-      var sound = document.getElementById("clickSound");
-      sound.play();
-  }
-
-  document.addEventListener('DOMContentLoaded', () => {
-      const links = document.querySelectorAll('a');
-      const hoverSound = document.getElementById('hoverSound');
-
-      links.forEach(link => {
-          link.addEventListener('mouseover', () => {
-              hoverSound.currentTime = 0;
-              hoverSound.play();
-          });
-      });
-  });
-  function playSound() {
-      var sound = document.getElementById("clickSound");
-      sound.currentTime = 0;  // Встановлює початок відтворення з самого початку
-      sound.play();
-  }
-        function toggleTheme() {
-            document.body.classList.toggle('dark-theme');
-
-            // Якщо активована темна тема, зберігаємо це в localStorage
-            if (document.body.classList.contains('dark-theme')) {
-                localStorage.setItem('theme', 'dark');
-            } else {
-                localStorage.setItem('theme', 'light');
-            }
-        }
-
-        // Перевіряємо і встановлюємо тему при завантаженні сторінки
-        window.onload = function() {
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme === 'dark') {
-                document.body.classList.add('dark-theme');
-            }
-        };
-
-        // Додаємо подію на кнопку для перемикання теми
-        document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
-
-        document.addEventListener('wheel', (event) => {
-  event.preventDefault();
-  window.scrollBy({
-    top: event.deltaY, // Використовуєм значення скролу по вертикалі
-    behavior: 'smooth' // Додаємо плавний перехід
-  });
-}, { passive: false });
-
-
-
-
-    </script>
-
-
+<script src="../static/js/home.js"></script>
 
     <footer>
         <div class="footer-container">
             <div class="footer-logo">
-                <img src="../static/images/logotipchik.png" alt="Логотип">
+                <img src="../static/images/logo.webp" alt="Логотип">
             </div>
             <div class="dropdown">
                 <button id="theme-toggle">Змінити тему</button>
             </div>
             <div class="footer-links">
                 <div class="text">
-                    <a onclick="play()" href="#">Головна</a>
-                    <a onclick="play()" href="#">Про нас</a>
-                    <a onclick="play()" href="#">Контакти</a>
-                    <a onclick="play()" href="#">Політика конфіденційності</a>
+                    <a onclick="play()" href="#">Hauptsächlich</a>
+                    <a onclick="play()" href="#">Über uns</a>
+                    <a onclick="play()" href="#">Kontakte</a>
+                    <a onclick="play()" href="http://127.0.0.1:7777/welcome">Datenschutzrichtlinie</a>
                 </div>
             </div>
             <div class="footer-social">
@@ -254,10 +86,9 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 Ваша компанія. Всі права захищені.</p>
+            <p>&copy; 2023-2024, Rheinenshatz</p>
         </div>
     </footer>
 </font>
 </body>
 </html>
-<!Це мій власний проект на Фласка, це початкова сторінка, прийміть, будь ласка, це>
