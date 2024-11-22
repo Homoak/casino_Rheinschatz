@@ -92,7 +92,7 @@ body {
 }
 
 .casino-button-check:hover {
-        background-color: #e60000; /* Темно-красный цвет при наведении */
+    background-color: #e60000; /* Темно-красный цвет при наведении */
     transform: scale(1.1);
 }
 
