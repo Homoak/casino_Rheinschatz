@@ -84,15 +84,15 @@ body {
     padding: 10px 35px; /* Внутренние отступы */
     font-size: 20px; /* Размер шрифта */
     cursor: pointer; /* Указатель мыши */
-    margin-left: 50px;
+    margin-left: 7px;
     margin-right: 20px;
-    transition: background-color 0.3s; /* Плавный переход цвета фона */    margin-left: auto;
+    transition: background-color 0.3s; /* Плавный переход цвета фона */
     margin-right: auto;
      transition: transform 0.3s ease; /* Плавный переход */
 }
 
 .casino-button-check:hover {
-        background-color: #e60000; /* Темно-красный цвет при наведении */
+    background-color: #e60000; /* Темно-красный цвет при наведении */
     transform: scale(1.1);
 }
 

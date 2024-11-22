@@ -166,33 +166,9 @@
             class="casino-button" type="button" formtarget="_blank">Back
     </button>
 </div>
-<script>
-    const checkbox = document.getElementById('checkbox');
-    const submitButton = document.getElementById('submitButton');
+<script src="../static/js/welcome.js"></script>
 
-    checkbox.addEventListener('change', function() {
-        submitButton.disabled = !this.checked; // Активируем кнопку, если галочка отмечена
-    });
-</script>
-
-<script>
-    function play() {
-         var audio = document.getElementById("audio");
-         audio.currentTime = 0;
-         audio.play();
-       }
-         const button = document.getElementById('soundButton');
-         const hoverSound = document.getElementById('hoverSound');
-
-         button.addEventListener('mouseenter', () => {
-             hoverSound.currentTime = 0; // Возвращает звук к началу
-             hoverSound.play();
-         });
-         function playSound() {
-     var sound = document.getElementById("clickSound");
-     sound.play();
- }
-</script>
+<script src="../static/js/welcome_func.js"></script>
 
 <audio id="audio" src="../static/audio/knopka.mp3"></audio>
 </body>
