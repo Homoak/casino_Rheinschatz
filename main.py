@@ -2,7 +2,10 @@ import sqlite3, random
 
 from flask import Flask, render_template, request, redirect, url_for, flash, g, jsonify
 from werkzeug.security import generate_password_hash, check_password_hash
-
+from flask_mail import Mail, Message
+import string
+from flask import session
+import os
 
 app = Flask(__name__)
 
@@ -14,7 +17,6 @@ DATABASE = 'database.db'
 user_balance = 1000
 
 element_list = ["apple", "banana", "cherry", "banana", "apple", "cherry", "banana"]
-
 def get_db():
     if 'db' not in g:
         g.db = sqlite3.connect(DATABASE)
@@ -32,7 +34,6 @@ def close_db(error):
     db = g.pop('db', None)
     if db is not None:
         db.close()
-
 
 @app.route('/')
 def welcome():
