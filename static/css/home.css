@@ -29,7 +29,7 @@ body {
     padding: 10px 20px; /* Відступи всередині шапки */
     align-items: center; /* Вирівнювання по центру */
     justify-content: space-between; /* Логотип ліворуч, навігація праворуч */
-    background-image: url('/static/images/img.jpg');
+    background-image: url('/static/images/abstract.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     overflow: hidden;
@@ -80,7 +80,7 @@ body {
 .image-button {
     width: 30px; /* Ширина кнопки */
     height: 30px; /* Висота кнопки */
-    background-image: url('images/vobler.jpg');
+    background-image: url('/static/images/logo.webp');
     background-size: cover;
     background-position: center;
     border: none; /* Забирає межу кнопки */
@@ -148,7 +148,7 @@ footer {
     padding: 10px 0;
     text-align: center;
     font-family: 'Arial', sans-serif;
-    background-image: url('images/img.jpg');
+    background-image: url('/static/images/abstract.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -193,7 +193,7 @@ footer {
 
 .footer-social img {
     width: 35px;
-    height: 30px;
+    height: 35px;
     border-radius: 50%;
     box-shadow: 0 1px 10px #ff0000;
     transition: transform 0.3s ease; /* Плавний перехід для трансформації */
@@ -246,7 +246,7 @@ footer {
     background-color: #e74c3c; /* Яскраво-червоний колір */
     color: #ffffff; /* Білий текст */
     padding: 5px 10px; /* Менші внутрішні відступи */
-
+    gap: 20px;
     border: none;
     border-radius: 10px; /* Згладжені краї (менше округлення) */
     font-size: 14px; /* Менший розмір шрифту */
@@ -256,6 +256,7 @@ footer {
     height: 50px;
     transition: transform 0.3s ease;
     box-shadow: 0 1px 20px #ff0000;
+    margin-right: 16px;
       color: #fff;
   text-shadow:
       0 0 7px #fff,

@@ -9,25 +9,25 @@
 <body>
 <font face="Arial">
     <header class="site-header">
-        <button onclick="play(); setTimeout(function() { location.href='http://127.0.0.1:19019/cabinet'; }, 500);"
+        <button onclick="play(); setTimeout(function() { location.href='http://127.0.0.1:7777/profile'; }, 500);"
                 class="image-button" type="button" formtarget="_blank">
         </button>
         <audio id="audio" src="../static/audio/knopka.mp3"></audio>
 
         <nav class="navigation">
             <div class="text1">
-                <a class="li1" style="color:white" onclick="play()" href="http://127.0.0.1:19019/home">Das Haus</a>
+                <a class="li1" style="color:white" onclick="play()" href="http://127.0.0.1:7777/home">Das Haus</a>
 
                 <!-- Ось тут "About" із випадаючим меню -->
                 <div class="dropdown">
                     <details onclick="play()" class="details">
                         <summary>Um</summary>
                         <div class="li10">
-                            <a class="li2" style="color:white" onclick="play()" href="http://127.0.0.1:19019/about"
+                            <a class="li2" style="color:white" onclick="play()" href="http://127.0.0.1:7777/about_autors"
                                id="about-link">Um Autors | </a>
-                            <a class="li2" style="color:white" onclick="play()" href="http://127.0.0.1:19019/hello"
+                            <a class="li2" style="color:white" onclick="play()" href="http://127.0.0.1:7777/info"
                                id="about-link">Information | </a>
-                            <a class="li2" style="color:white" onclick="play()" href="http://127.0.0.1:19019/news"
+                            <a class="li2" style="color:white" onclick="play()" href="http://127.0.0.1:7777/zeitung"
                                id="about-link">Zeitung</a>
                         </div>
                     </details>
@@ -39,11 +39,16 @@
         </nav>
     </header>
     <div class="content-container">
-        <h1 style="color:white">Hallo {{name}}</h1>
+        <h1 style="color:white">Spiele und verdiene!</h1>
         <ul class="item-list">
             <div class="color">
             </div>
-            <button id="soundButton" class="custom-button" onclick="play(); setTimeout(function() { location.href='http://127.0.0.1:7777/game'; }, 500);"><h2>Spiele!</h2></button>
+            <button id="soundButton" class="custom-button"
+                    onclick="play(); setTimeout(function() { location.href='http://127.0.0.1:7777/game'; }, 500);">
+                <h2>Random_Spiele</h2></button>
+            <button id="soundButton" class="custom-button"
+                    onclick="play(); setTimeout(function() { location.href='http://127.0.0.1:7777/match_game'; }, 500);">
+                <h2>Match_Spiele</h2></button>
             <audio id="hoverSound" src="static/knopka.mp3"></audio>
         </ul>
     </div>
@@ -58,30 +63,27 @@
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
 
-<script src="../static/js/home.js"></script>
+    <script src="../static/js/home.js"></script>
 
     <footer>
         <div class="footer-container">
             <div class="footer-logo">
                 <img src="../static/images/logo.webp" alt="Логотип">
             </div>
-            <div class="dropdown">
-                <button id="theme-toggle">Змінити тему</button>
-            </div>
             <div class="footer-links">
                 <div class="text">
                     <a onclick="play()" href="#">Hauptsächlich</a>
-                    <a onclick="play()" href="#">Über uns</a>
-                    <a onclick="play()" href="#">Kontakte</a>
-                    <a onclick="play()" href="http://127.0.0.1:7777/welcome">Datenschutzrichtlinie</a>
+                    <a onclick="play()" href="http://127.0.0.1:7777/about_autors">Über uns</a>
+                    <a onclick="play()" href="http://127.0.0.1:7777/contact">Kontakte</a>
+                    <a onclick="play()" href="http://127.0.0.1:7777/">Datenschutzrichtlinie</a>
                 </div>
             </div>
             <div class="footer-social">
                 <a onclick="play()" href="https://discordapp.com/users/1093950203414982787/"><img
-                        src="../static/images/discord.jpg" alt="Discord"></a>
-                <a onclick="play()" href="http://t.me/programistick"><img src="../static/images/telegram.jpg"
+                        src="../static/images/ds.jpg" alt="Discord"></a>
+                <a onclick="play()" href="http://t.me/programistick"><img src="../static/images/tg.png"
                                                                           alt="Telegram"></a>
-                <a onclick="play()" href="http://wa.me/+380688613865"><img src="../static/images/watsap.jpg"
+                <a onclick="play()" href="http://wa.me/+380688613865"><img src="../static/images/wh.png"
                                                                            alt="WhatsApp"></a>
             </div>
         </div>

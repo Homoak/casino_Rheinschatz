@@ -1,0 +1,13 @@
+/* Загальні стилі */
+body {
+    background-image: url('/static/images/abs.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}

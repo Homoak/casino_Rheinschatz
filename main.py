@@ -43,6 +43,22 @@ def welcome():
 def home():
     return render_template('home.html')
 
+@app.route('/zeitung')
+def news():
+    return render_template('zeitung.html')
+
+@app.route('/info')
+def info():
+    return render_template('info.html')
+
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
+
+@app.route('/about_autors')
+def ab_autors():
+    return render_template('about_autors.html')
+
 @app.route('/match_game')
 def match_game():
     return render_template('match_game.html', balance=user_balance)

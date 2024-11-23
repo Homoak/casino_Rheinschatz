@@ -8,15 +8,49 @@
 
 </head>
 <body>
+<a onclick="play()" href="http://127.0.0.1:7777/home">Zu Hause</a>
+                    <a onclick="play()" href="http://127.0.0.1:7777/profile">Profile</a>
 <div id="wheel" class="wheel" onclick="spinWheel()">
     {% for symbol in result %}
     <span class="result"><b>{{ symbol }}</b></span>
     {% endfor %}
 </div>
 <button class="results" type="button" onClick="window.location.reload();">Spid</button>
+        <audio id="audio" src="../static/audio/knopka.mp3"></audio>
 <script>
+function play() {
+          var audio = document.getElementById("audio");
+          audio.currentTime = 0;
+          audio.play();
+        }
+          const button = document.getElementById('soundButton');
+          const hoverSound = document.getElementById('hoverSound');
 
+          button.addEventListener('mouseenter', () => {
+              hoverSound.currentTime = 0; // Возвращает звук к началу
+              hoverSound.play();
+          });
+          function playSound() {
+      var sound = document.getElementById("clickSound");
+      sound.play();
+  }
 
+  document.addEventListener('DOMContentLoaded', () => {
+      const links = document.querySelectorAll('a');
+      const hoverSound = document.getElementById('hoverSound');
+
+      links.forEach(link => {
+          link.addEventListener('mouseover', () => {
+              hoverSound.currentTime = 0;
+              hoverSound.play();
+          });
+      });
+  });
+  function playSound() {
+      var sound = document.getElementById("clickSound");
+      sound.currentTime = 0;  // Встановлює початок відтворення з самого початку
+      sound.play();
+  }
 </script>
 </body>
 </html>
