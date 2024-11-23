@@ -1,0 +1,26 @@
+body {
+    background-image: url('/static/images/abs.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+.footer-social img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    box-shadow: 0 1px 10px #ff0000;
+    justify-content: center; /* Горизонтальне вирівнювання */
+    transition: transform 0.3s ease; /* Плавний перехід для трансформації */
+}
+
+
+.footer-social img:hover {
+    transform: scale(1.1); /* Збільшує іконку на 10% при наведенні */
+}

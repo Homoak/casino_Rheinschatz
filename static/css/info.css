@@ -1,0 +1,57 @@
+body {
+    background-image: url('/static/images/abs.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.custom-button {
+    background-color: #e74c3c; /* Яскраво-червоний колір */
+    color: #ffffff; /* Білий текст */
+    padding: 5px 10px; /* Менші внутрішні відступи */
+    border: none;
+    border-radius: 10px; /* Згладжені краї (менше округлення) */
+    font-size: 14px; /* Менший розмір шрифту */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Плавна зміна кольору */
+    width: auto; /* Виправлений розмір кнопки */
+    height: 50px;
+    width: 100px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 1px 20px #ff0000;
+    margin-left: 520px;
+      color: #fff;
+  text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #ff0000,
+      0 0 82px #ff0000,
+      0 0 92px #ff0000,
+      0 0 102px #ff0000,
+      0 0 151px #ff0000;
+}
+
+.custom-button:hover {
+    background-color: #c0392b; /* Темніший червоний при наведенні */
+    transform: scale(1.1); /* Збільшує кнопку на 10% */
+}
+
+.custom-button:active {
+    background-color: #a93226; /* Темно-червоний при натисканні */
+}
+
+.custom-button:focus {
+    outline: none; /* Видалення рамки при фокусуванні */
+}
+
+.custom-button {
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1); /* Легка тінь (менша) */
+    text-transform: uppercase; /* Великі літери */
+    letter-spacing: 0.5px; /* Розрядка між літерами (менша) */
+}
