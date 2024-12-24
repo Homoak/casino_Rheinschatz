@@ -29,7 +29,7 @@ body {
     padding: 10px 20px; /* Відступи всередині шапки */
     align-items: center; /* Вирівнювання по центру */
     justify-content: space-between; /* Логотип ліворуч, навігація праворуч */
-    background-image: url('/static/images/abstract.jpg');
+    background-image: url('/static/images/abstract.jpg') ;
     background-repeat: no-repeat;
     background-size: cover;
     overflow: hidden;

@@ -1,4 +1,5 @@
 import sqlite3, random
+import valute
 
 from flask import Flask, render_template, request, redirect, url_for, flash, g, jsonify
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -15,6 +16,7 @@ app.secret_key = '''b'7A\xec\xb6\x83A\x0c\xacH\x9a\x18\xc3\xd0\xf1\x07\xd2\xfa\x
 DATABASE = 'database.db'
 
 user_balance = 1000
+
 
 element_list = ["apple", "banana", "cherry", "banana", "apple", "cherry", "banana"]
 def get_db():
@@ -65,10 +67,12 @@ def match_game():
 
 @app.route('/profile')
 def profile():
+    from valute import title
+    from valute import usd
     db = get_db()  # Підключення до бази даних
     cursor = db.execute("SELECT * FROM users")
     user = cursor.fetchall()[-1]
-    return render_template('profile.html', balance=user_balance, user=user)
+    return render_template('profile.html', balance=user_balance, user=user, title=title, usd=usd)
 
 
 @app.route('/game')
@@ -163,8 +167,6 @@ def register():
                 print(f"Name: {name}, Email: {email}, Password: {password}")
 
     return render_template('register.html')
-
-
 
 
 if __name__ == "__main__":
